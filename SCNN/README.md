@@ -30,7 +30,7 @@ mkdir results checkpoints tmp
 
 # run the container
 apptainer run --nv -B /vast \
-	scnn-rs.sif model_train.py \
+	scnn.sif model_train.py \
 		-i /opt/images/train \                  # this is a directory inside the container
 		-f /opt/scnn/inputs/all_dataset.csv \   # this is a file inside the container
 		-r results \ 
