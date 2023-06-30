@@ -8,7 +8,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y locales && locale-gen en_AU.UTF-8
 
 # installing ubuntu desktop and graphical libs
-RUN apt-get install -y ubuntu-desktop libqt5gui5
+RUN apt-get install -y wget libqt5gui5
 
 # installing cuda 11.3
 RUN wget https://developer.download.nvidia.com/compute/cuda/11.3.0/local_installers/cuda_11.3.0_465.19.01_linux.run && sh cuda_11.3.0_465.19.01_linux.run --silent --toolkit --toolkitpath=/usr/local/cuda --override && rm cuda_11.3.0_465.19.01_linux.run
