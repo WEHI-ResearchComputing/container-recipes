@@ -1,0 +1,8 @@
+FROM nextgenusfs/funannotate:v1.8.15
+
+WORKDIR /opt
+# download interproscan and decompress on the fly
+RUN curl "http://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.63-95.0/interproscan-5.63-95.0-64-bit.tar.gz" |  tar xzv  && mv interproscan-5.63-95.0 interproscan
+# Index hmm files as per install instructions: https://interproscan-docs.readthedocs.io/en/latest/HowToDownload.html#index-hmm-models
+RUN cd interproscan && python3 setup.py -f interproscan.properties
+WORKDIR /
