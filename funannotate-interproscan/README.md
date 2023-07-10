@@ -12,4 +12,4 @@ The uncompressed docker image is huge (~45G) as it contains all the databases ne
 
 ### Apptainer
 
-`apptainer run -v $(pwd) docker://edoyango/interproscan-funannotate funannotate iprscan --iprscan_path /opt/interproscan/interposcan.sh -m local <other args>`
+`apptainer run -B $(pwd) docker://edoyango/interproscan-funannotate funannotate iprscan --iprscan_path /opt/interproscan/interposcan.sh -m local <other args>`
