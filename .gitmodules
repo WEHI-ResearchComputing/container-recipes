@@ -1,0 +1,3 @@
+[submodule "mlperf/DeepLearningExamples"]
+	path = mlperf/DeepLearningExamples
+	url = https://github.com/NVIDIA/DeepLearningExamples.git
