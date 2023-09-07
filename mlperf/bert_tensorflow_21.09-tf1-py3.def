@@ -1,0 +1,31 @@
+Bootstrap: docker
+From: nvcr.io/nvidia/tensorflow:21.09-tf1-py3
+
+%files
+  DeepLearningExamples/TensorFlow/LanguageModeling/BERT /workspace/bert
+
+%post
+
+  apt-get update && apt-get install -y pbzip2 pv bzip2 libcurl4 curl libb64-dev axel
+  pip install toposort networkx pytest nltk tqdm progressbar pynvml numpy==1.21
+  pip --no-cache-dir --no-cache install git+https://github.com/NVIDIA/dllogger wget
+
+  cd /workspace
+
+  git clone https://github.com/openai/gradient-checkpointing.git
+  git clone https://github.com/attardi/wikiextractor.git && cd wikiextractor && git checkout 6408a430fc504a38b04d37ce5e7fc740191dee16 && cd ..
+  git clone https://github.com/soskek/bookcorpus.git
+  git clone https://github.com/titipata/pubmed_parser
+
+  pip3 install /workspace/pubmed_parser
+
+  #Install tritonclient
+  pip install tritonclient[all]==2.5.0
+
+  pip cache purge
+  
+%environment
+  export PYTHONPATH=/workspace/bert
+  export BERT_PREP_WORKING_DIR=/workspace/bert/data
+  export PATH=/workspace/install/bin:${PATH}
+  export LD_LIBRARY_PATH=/workspace/install/lib:${LD_LIBRARY_PATH}
