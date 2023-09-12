@@ -30,5 +30,5 @@ apptainer exec \
 	-B /vast \
 	-B /stornext \
 	-B `pwd -P`/download:/workspace/bert/data/download \
-	tensorflow_21.09-tf1-py3_bert.sif \
+	bert_tensorflow_21.09-tf1-py3.sif \
 		bash -xc "/workspace/bert/data/create_datasets_from_start.sh ${to_download}"
