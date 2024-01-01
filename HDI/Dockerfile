@@ -5,7 +5,7 @@ ENV LC_ALL=en_AU.UTF-8
 ENV LANGUAGE=en_AU.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y locales && locale-gen en_AU.UTF-8
+RUN apt-get install -y locales && locale-gen en_AU.UTF-8 && apt-get install -y git
 
 RUN git clone https://github.com/Nicola17/High-Dimensional-Inspector.git /opt/High-Dimensional-Inspector
 WORKDIR /opt/High-Dimensional-Inspector
