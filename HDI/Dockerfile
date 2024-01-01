@@ -12,14 +12,14 @@ RUN git clone https://github.com/Nicola17/High-Dimensional-Inspector.git /opt/Hi
 WORKDIR /opt/High-Dimensional-Inspector
 
 # install HDI (recreating install script)
-RUN apt-get install build-essential libgl1-mesa-dev 
+RUN apt-get install build-essential libgl1-mesa-dev -y
 RUN add-apt-repository ppa:beineri/opt-qt551-trusty -y && apt-get update
 RUN apt-get install qt55base qt55-meta-full -y
 RUN mkdir /etc/xdg/qtchooser && touch /etc/xdg/qtchooser/default.conf
 RUN printf "/opt/qt55/bin\n/opt/qt55/lib" | tee /etc/xdg/qtchooser/default.conf
 
 # install dependency: cdroaring
-RUN apt-get install libflann-dev
+RUN apt-get install libflann-dev -ys
 RUN git clone https://github.com/RoaringBitmap/CRoaring.git && cd CRoaring && mkdir -p build && cd build && cmake  -DCMAKE_BUILD_TYPE=Release .. && make -j && make install && cd ../.. && rm -rf CRoaring
 
 # complete install of HDI
