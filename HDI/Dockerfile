@@ -12,7 +12,7 @@ RUN git clone https://github.com/Nicola17/High-Dimensional-Inspector.git /opt/Hi
 WORKDIR /opt/High-Dimensional-Inspector
 
 # install HDI (recreating install script)
-RUN apt-get install build-essential libgl1-mesa-dev -y
+RUN apt-get install build-essential libgl1-mesa-dev cmake -y
 RUN apt-get install qt5-default libqt5webkit5 libqt5webkit5-dev -y
 
 # install dependency: cdroaring
