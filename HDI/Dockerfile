@@ -17,7 +17,7 @@ RUN wget https://swift.rc.nectar.org.au/v1/AUTH_810/CVL-Singularity-External-Fil
 
 # install HDI (recreating install script)
 RUN apt-get install build-essential libgl1-mesa-dev cmake -y
-RUN apt-get install qt5-default libqt5webkit5 libqt5webkit5-dev -y
+RUN apt-get install qt5-default libqt5webkit5 libqt5webkit5-dev x11-xserver-utils mesa-utils libxv1 libgl1-mesa-glx libgl1-mesa-dri -y
 
 # install dependency: cdroaring
 RUN apt-get install libflann-dev -y
