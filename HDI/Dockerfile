@@ -7,6 +7,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y locales && locale-gen en_AU.UTF-8 && apt-get install -y git software-properties-common wget
 
+# get cuda drivers
+RUN wget https://developer.download.nvidia.com/compute/cuda/11.3.0/local_installers/cuda_11.3.0_465.19.01_linux.run && sh cuda_11.3.0_465.19.01_linux.run --silent --toolkit --toolkitpath=/usr/local/cuda --override && rm cuda_11.3.0_465.19.01_linux.run
+ENV LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
+
 # get the HDI repo
 RUN git clone https://github.com/Nicola17/High-Dimensional-Inspector.git /opt/High-Dimensional-Inspector
 WORKDIR /opt/High-Dimensional-Inspector
