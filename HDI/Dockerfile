@@ -7,10 +7,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y locales && locale-gen en_AU.UTF-8 && apt-get install -y git software-properties-common wget
 
-# get cuda drivers
-RUN wget https://developer.download.nvidia.com/compute/cuda/11.3.0/local_installers/cuda_11.3.0_465.19.01_linux.run && sh cuda_11.3.0_465.19.01_linux.run --silent --toolkit --toolkitpath=/usr/local/cuda --override && rm cuda_11.3.0_465.19.01_linux.run
-ENV LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
-
 # get the HDI repo
 RUN git clone https://github.com/Nicola17/High-Dimensional-Inspector.git /opt/High-Dimensional-Inspector
 WORKDIR /opt/High-Dimensional-Inspector
@@ -21,7 +17,7 @@ RUN wget https://swift.rc.nectar.org.au/v1/AUTH_810/CVL-Singularity-External-Fil
 
 # install HDI (recreating install script)
 RUN apt-get install build-essential libgl1-mesa-dev cmake -y
-RUN apt-get install qt5-default libqt5webkit5 libqt5webkit5-dev x11-xserver-utils mesa-utils libxv1 libgl1-mesa-glx libgl1-mesa-dri -y
+RUN apt-get install qt5-default libqt5webkit5 libqt5webkit5-dev x11-xserver-utils mesa-utils libgl1-mesa-glx libgl1-mesa-dri -y
 
 # install dependency: cdroaring
 RUN apt-get install libflann-dev -y
