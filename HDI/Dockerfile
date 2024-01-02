@@ -25,3 +25,5 @@ RUN git clone https://github.com/RoaringBitmap/CRoaring.git -b v0.2.66 && cd CRo
 
 # complete install of HDI
 RUN mkdir build && cd build && cmake  -DCMAKE_BUILD_TYPE=Release .. && make -j && make install
+
+ENV PATH=/opt/High-Dimensional-Inspector/build/applications/command_line_tools:/opt/High-Dimensional-Inspector/build/applications/tdd:/opt/High-Dimensional-Inspector/build/applications/visual_tests:$PATH
