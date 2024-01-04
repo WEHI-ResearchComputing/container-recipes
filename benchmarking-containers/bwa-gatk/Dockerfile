@@ -1,3 +1,3 @@
-FROM biocontainers/bwa:v0.7.17_cv1
+FROM quay.io/biocontainers/gatk4:4.2.6.0--hdfd78af_0
 
-RUN conda install gatk=3.8 -y
+RUN conda install bwa=0.7.17 -y
