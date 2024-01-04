@@ -1,3 +1,3 @@
-FROM quay.io/biocontainers/bwa:0.7.17--he4a0461_10
+FROM continuumio/miniconda3
 
-RUN conda install gatk4=4.4.0.0 -y
+RUN conda install -y -c conda-forge -c bioconda bwa=0.7.17 gatk4=4.4.0.0
