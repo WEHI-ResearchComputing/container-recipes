@@ -1,3 +1,3 @@
 FROM ubuntu:22.04
 
-RUN apt-get update && apt-get install python3 python-is-python3 wget && wget -O /usr/bin/nix https://hydra.nixos.org/build/222822347/download/1/nix
+RUN apt-get update && apt-get install python3 python-is-python3 wget -y && wget -O /usr/bin/nix https://hydra.nixos.org/build/222822347/download/1/nix
