@@ -1,3 +1,3 @@
-FROM nixos/nix:2.20.0pre20231219_94a03a8
+FROM ubuntu:22.04
 
-RUN nix-channel --update && nix-env -iA nixpkgs.python3
+RUN apt-get update && apt-get install python3 python-is-python3 wget && wget -O /usr/bin/nix https://hydra.nixos.org/build/222822347/download/1/nix
