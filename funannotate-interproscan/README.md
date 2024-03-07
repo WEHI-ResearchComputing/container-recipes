@@ -8,8 +8,8 @@ The uncompressed docker image is huge (~45G) as it contains all the databases ne
 
 ### Docker
 
-`docker run -v $(pwd):/work edoyango/interproscan-funannotate funannotate iprscan --iprscan_path /opt/interproscan/interproscan.sh -m local <other args>`
+`docker run -v $(pwd):/work ghcr.io/wehi-researchcomputing/interproscan-funannotate:1.8.15_5.63-95.0 funannotate iprscan --iprscan_path /opt/interproscan/interproscan.sh -m local <other args>`
 
 ### Apptainer
 
-`apptainer run -B $(pwd) docker://edoyango/interproscan-funannotate funannotate iprscan --iprscan_path /opt/interproscan/interposcan.sh -m local <other args>`
+`apptainer run -B $(pwd) docker://ghcr.io/wehi-researchcomputing/interproscan-funannotate:1.8.15_5.63-95.0 funannotate iprscan --iprscan_path /opt/interproscan/interposcan.sh -m local <other args>`
